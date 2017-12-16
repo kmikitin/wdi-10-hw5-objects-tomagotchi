@@ -11,22 +11,17 @@ console.log('We will rule over all this land, and we will call it... "This Land.
 // Write a method yawn into your Tamagotchi object that console.logs the Tamagotchi yawning when it is tired (example: Yaaaawwwwn!).
 // Invoke the yawn method.
 // Remember that using when using the keyword this, we can have our object methods act upon other properties that are intrinsic to our object.
-
 // Update the yawn and puke methods to output the Tamogatchi's name in the sentence with the yawn or puke action. Execute these methods to confirm the output.
-
 // Update the cry method to decrease the amount of food in the Tamagotchi's tummy.
-
 // In addition, the cry method should now also log a sentence that will tell us the amount of food in the Tamagotchi's tummy.
-
-// Hint: We would refer to the foodInTummy property with this.foodInTummy.
-
+// Hint: We would refer to the foodInTummy property with this.foodInTummy. 
 // Execute the cry method to see the output.
 
 let tamagotchi = {
 	name: 'Meg',
 	creatureType: 'Sloth',
-	foodInTummy: 5,
-	restedness: 7,
+	foodInTummy: 10,
+	restedness: 10,
 	health: 10,
 	cry() {
 		console.log('Waaaaaa!!!');
@@ -44,4 +39,41 @@ let tamagotchi = {
 tamagotchi.cry();
 tamagotchi.puke();
 tamagotchi.yawn();
+
+// Another Tamogatchi
+// Create another Tamogatchi. This new Tamogatchi should have the same keys and methods as the first, but the values for: name, creatureType, foodInTummy, restedness, health
+// Run the methods on this new Tamogatchi and notice that they should reference the name of this new Tamogatchi.
+let tamagotchi2 = {
+	name: 'Seth',
+	creatureType: 'Rabbit',
+	foodInTummy: 8,
+	restedness: 8,
+	health: 8,
+	cry() {
+		console.log('Waaaaaa!!!');
+		this.foodInTummy = this.foodInTummy - 1;
+		console.log(this.name + ' has ' + this.foodInTummy + ' foods in their tummy.')
+	},
+	puke() {
+		console.log(this.name + ': Bleeeech :O~~~~');
+	},
+	yawn() {
+		console.log(this.name + ': Yaaaaaaawwwwwn');
+	}
+
+}
+
+tamagotchi2.cry();
+tamagotchi2.puke();
+tamagotchi2.yawn();
+
+
+
+
+
+
+
+
+
+
 
