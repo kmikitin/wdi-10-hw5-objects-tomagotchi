@@ -6,6 +6,9 @@ console.log('We will rule over all this land, and we will call it... "This Land.
 // Our objects can contain primitive datatypes as values for the keys, and we have seen that they can contain arrays and other objects as values too. Objects can also contain functions as values. When a function is stored within an object, it's called a method.
 // Let's add a method of cry to our Tamagotchi that will log "Waaaaaa!!!" anytime the cry method is called.
 // Invoke the cry method to test that it works.
+// Write a method puke into your Tamagotchi object that console.logs the Tamagotchi having a sick-up (example: Bleeeeh :O~~)
+
+// Invoke the puke method to confirm that it works.
 
 let tamagotchi = {
 	name: 'Meg',
@@ -15,8 +18,12 @@ let tamagotchi = {
 	health: 10,
 	cry() {
 		console.log('Waaaaaa!!!');
+	},
+	puke() {
+		console.log('Bleeeech :O~~~~')
 	}
 }
 
 tamagotchi.cry();
+tamagotchi.puke();
 
