@@ -38,4 +38,33 @@ myInformation.aging();
 myInformation.newName('Rumpelstiltskin');
 
 
+// Greeter
+// Create an object called greeter.
+// Inside the greeter object, create a method called hello that takes a name as a parameter and returns a greeting message followed by the name parameter.
+// Create another method inside greeter called goodbye that takes a name as a parameter and returns a farewell greeting followed by the name parameter.
+// Create a final method inside greeter called whoAreYou that takes a name as a parameter and returns "Oh right! ", followed by the name parameter, followed by " how could I forget...!"
+// Play around executing your functions by accessing them through the object.
+let greeter = {
+	hello(otherPerson) {
+		return 'Hi there, ' + otherPerson + '!'
+	},
+	goodbye(otherPerson) {
+		return 'Au revoir, ' + otherPerson + ', until we meet again.'
+	},
+	whoAreYou(otherPerson) {
+		return 'Oh right! ' + otherPerson + ' - how could I forget...!'
+	}
+
+}
+
+console.log(greeter.whoAreYou('Jon'), greeter.hello('Jon'));
+console.log(greeter.goodbye('Jon'));
+
+
+
+
+
+
+
+
 
