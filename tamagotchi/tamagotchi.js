@@ -7,8 +7,9 @@ console.log('We will rule over all this land, and we will call it... "This Land.
 // Let's add a method of cry to our Tamagotchi that will log "Waaaaaa!!!" anytime the cry method is called.
 // Invoke the cry method to test that it works.
 // Write a method puke into your Tamagotchi object that console.logs the Tamagotchi having a sick-up (example: Bleeeeh :O~~)
-
 // Invoke the puke method to confirm that it works.
+// Write a method yawn into your Tamagotchi object that console.logs the Tamagotchi yawning when it is tired (example: Yaaaawwwwn!).
+// Invoke the yawn method.
 
 let tamagotchi = {
 	name: 'Meg',
@@ -20,10 +21,14 @@ let tamagotchi = {
 		console.log('Waaaaaa!!!');
 	},
 	puke() {
-		console.log('Bleeeech :O~~~~')
+		console.log('Bleeeech :O~~~~');
+	}
+	yawn() {
+		console.log('Yaaaaaaawwwwwn');
 	}
 }
 
 tamagotchi.cry();
 tamagotchi.puke();
+tamagotchi.yawn();
 
