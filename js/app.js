@@ -127,6 +127,48 @@ let leonardo = {
 leonardo.eatPizza()
 
 
+// Calculator
+// Create an object called calculator
+// Create a property called output
+// Create a method inside your object that will multiply two numbers and change the output value to this current value. This method should also log the value of output.
+// Create a function that will divide two numbers. It should also change the output value to this current value. This method should also log the value of output.
+// Practice using your calculator with some pairs (10, 2), (-2, 8), (2, 2).
+// If there's additional time, add methods for addition and subtraction
+let calculator = {
+	output: 0,
+	multiplyTwoNumbers(num1, num2) {
+		this.output = num1 * num2;
+		console.log(this.output);
+	},
+	divideTwoNumbers(num1, num2) {
+		if (num1 > num2) {
+			this.output = num1/num2;
+			console.log(this.output);
+		} else if (num1 < num2) {
+			this.output = num2/num1;
+			console.log(this.output);	
+		}
+	},
+	addTwoNumbers(num1, num2) {
+		this.output = num1 + num2;
+		console.log(this.output);
+	},
+	subtractTwoNumbers(num1, num2) {
+		if (num1 > num2) {
+			this.output = num1 - num2;
+		console.log(this.output);
+		} else if (num1 < num2) {
+			this.output = num2 - num1;
+			console.log(this.output);
+		}
+	}
+}
+
+
+
+
+
+
 
 
 
