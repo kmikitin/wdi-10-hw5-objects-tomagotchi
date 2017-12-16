@@ -84,6 +84,24 @@ stringCollector.collect('polenta')
 stringCollector.collect('exacerbate')
 
 
+// ATM
+// Make an object called atm which has two properties:
+// totalCash, the total amount of cash in the atm
+// dispenseTwenties, a method with takes a number of twenties and, if there is enough cash, returns the total number of cash it is giving out.
+// If there is not enough cash, return null instead.
+let atm = {
+	totalCash: 200,
+	dispenseTwenties(num) {
+		if (this.totalCash / 20 > 0) {
+			this.totalCash = this.totalCash - (num * 20);
+			return num * 20;
+		} return null;
+	}
+
+}
+
+
+
 
 
 
