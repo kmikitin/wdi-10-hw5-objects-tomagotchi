@@ -10,6 +10,17 @@ console.log('We will rule over all this land, and we will call it... "This Land.
 // Invoke the puke method to confirm that it works.
 // Write a method yawn into your Tamagotchi object that console.logs the Tamagotchi yawning when it is tired (example: Yaaaawwwwn!).
 // Invoke the yawn method.
+// Remember that using when using the keyword this, we can have our object methods act upon other properties that are intrinsic to our object.
+
+// Update the yawn and puke methods to output the Tamogatchi's name in the sentence with the yawn or puke action. Execute these methods to confirm the output.
+
+// Update the cry method to decrease the amount of food in the Tamagotchi's tummy.
+
+// In addition, the cry method should now also log a sentence that will tell us the amount of food in the Tamagotchi's tummy.
+
+// Hint: We would refer to the foodInTummy property with this.foodInTummy.
+
+// Execute the cry method to see the output.
 
 let tamagotchi = {
 	name: 'Meg',
@@ -19,12 +30,14 @@ let tamagotchi = {
 	health: 10,
 	cry() {
 		console.log('Waaaaaa!!!');
+		this.foodInTummy = this.foodInTummy - 1;
+		console.log(this.name + ' has ' + this.foodInTummy + ' foods in their tummy.')
 	},
 	puke() {
-		console.log('Bleeeech :O~~~~');
-	}
+		console.log(this.name + ': Bleeeech :O~~~~');
+	},
 	yawn() {
-		console.log('Yaaaaaaawwwwwn');
+		console.log(this.name + ': Yaaaaaaawwwwwn');
 	}
 }
 
