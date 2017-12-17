@@ -58,9 +58,10 @@ tamagotchi2.cry();
 tamagotchi2.puke();
 tamagotchi2.yawn();
 
-// Write a medicateTamagotchi method that takes an argument (a Tamagotchi) that will give the specified tamagotchi medicine and increase its health by 1.
 
-// Invoke the player.feedTamagotchi(your_tamagotchis_name) method to see if it works
+// Write a knockOutTamagotchi method in the player object that will put the tamagotchi to sleep and increase its restedness by 1.
+
+// Invoke the player.knockOutTamagotchi(your_tamagotchis_name) method to see if it works
 
 
 let player = {
@@ -74,10 +75,15 @@ let player = {
 	}, 
 	medicateTamagotchi(chooseTam) {
 		chooseTam.health = chooseTam.health +1;
+	},
+	knockOutTamagotchi(chooseTam){
+		chooseTam.restedness = chooseTam.restedness +1;
 	}
 }
 
 player.feedTamagotchi()
+
+
 
 
 
