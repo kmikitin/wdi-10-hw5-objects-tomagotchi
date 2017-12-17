@@ -1,9 +1,6 @@
 console.log('We will rule over all this land, and we will call it... "This Land."');
 
-// Update The Methods on Both
-// Make it so that when puke is invoked, it decreases the object's health value by 1 and logs the new number to the console, and also logs the Tamagotchi's name
 
-// Make it so that when yawn is invoked, it decreases the object's restedness value by 1 and logs the new number to the console, and also logs the Tamagotchi's name
 
 let tamagotchi = {
 	name: 'Meg',
@@ -61,10 +58,20 @@ tamagotchi2.cry();
 tamagotchi2.puke();
 tamagotchi2.yawn();
 
+// Let's Play
+// Objects can communicate with each other, and we don't need this for objects to communicate with each other. All it takes is for an object to refer to a previously defined object.
+
+// Let's make another object, a player. The player should have a key of name and you can provide the value.
+
+// Let's give your player an action sayName that will log the sentence: "Hi my name is: " with your player's name at the end.
 
 
-
-
+let player = {
+	name: 'Jon',
+	sayName() {
+		console.log('Hi my name is: ' + this.name)
+	} 
+}
 
 
 
