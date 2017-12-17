@@ -5,7 +5,7 @@ function hungerTimer(tamagotchi) {
 	// use set interval to creat a timer that calls cry every 6 seconds
 	const hungerTimer = setInterval(() => {
 	// call the method until there are 0 foods left
-		if (tamagotchi.foodInTummy > 1) {
+		if (tamagotchi.foodInTummy > 1 && tamagotchi.restedness > 1 && tamagotchi.health > 1) {
 			tamagotchi.cry();
 		} else {
 			// once there are 0 foods left tamagotchi has starved!
@@ -21,7 +21,7 @@ function yawnTimer(tamagotchi) {
 	// use setInterval to call yawn every 10 seconds
 	const yawnTimer = setInterval(() => {
 	// call the method until 0 restedness points remain
-		if (tamagotchi.restedness > 1) {
+		if (tamagotchi.restedness > 1 && tamagotchi.foodInTummy > 1 && tamagotchi.health > 1) {
 			tamagotchi.yawn();
 		} else {
 			// stop the timer and let the player know their tamatochi died 
@@ -35,7 +35,7 @@ function sickTimer(tamagotchi) {
 		// use setInterval to call puke every 10 seconds
 	const sickTimer = setInterval(() => {
 		// call the puke method until 0 health point remain
-		if (tamagotchi.health > 1) {
+		if (tamagotchi.health > 1 && tamagotchi.foodInTummy > 1 && tamagotchi.restedness > 1) {
 			tamagotchi.puke();
 		} else {
 			// STOP THE TIMER!!! The tamagotchi puked itself to death :/
@@ -54,8 +54,8 @@ let tamagotchi = {
 	name: 'Meg',
 	creatureType: 'Sloth',
 	foodInTummy: 10,
-	restedness: 10,
-	health: 10,
+	restedness: 7,
+	health: 5,
 	// create a method to make the tamagotchi cry
 	cry() {
 		// print waaaa!
@@ -82,8 +82,14 @@ let tamagotchi = {
 		this.restedness = this.restedness - 1;
 		// print how much restedness remains
 		console.log(this.name + ' has ' + this.restedness + ' hours of sleep.');
+	},
+	// create a method that will start the intervals for all the other methods
+	start() {
+		// use this to give the functions the parameter of this tamagotchi
+		hungerTimer(this);
+		sickTimer(this);
+		yawnTimer(this);
 	}
-	// start() 
 }
 
 // call the methods to make sure they work
@@ -119,7 +125,12 @@ let tamagotchi2 = {
 			this.cry();
 			clearInterval(theTimer);
 		}, 6000)
-	} 
+	},
+	start() {
+		hungerTimer(this);
+		yawnTimer(this);
+		sickTimer(this);
+	}
 
 }
 
@@ -127,20 +138,27 @@ let tamagotchi2 = {
 // tamagotchi2.puke();
 // tamagotchi2.yawn();
 
-
+// create a player object to interact with the tamagotchis
 let player = {
 	name: 'Jon',
+	// create a method so the player will introduce themselves
 	sayName() {
 		console.log('Hi my name is: ' + this.name)
 	},
+	// create a method for the player to feed both the tamagotchis at once
 	feedTamagotchi () {
+		// when they are fed increase their food in tummy by one
 		tamagotchi.foodInTummy = tamagotchi.foodInTummy + 1;
 		tamagotchi2.foodInTummy = tamagotchi2.foodInTummy + 1;
 	}, 
+	// create a method for the player to give medicine to the tamagotchis
 	medicateTamagotchi(chooseTam) {
+		// when they sleep increase theri health points by 1
 		chooseTam.health = chooseTam.health +1;
 	},
+	// create a method for the player to put the tamagotchis to sleep
 	knockOutTamagotchi(chooseTam){
+		// when they sleep increase their restedness points by one
 		chooseTam.restedness = chooseTam.restedness +1;
 	}
 }
