@@ -58,13 +58,9 @@ tamagotchi2.cry();
 tamagotchi2.puke();
 tamagotchi2.yawn();
 
-// Objects can work together! All we need to do is refer to a previously defined object. Let's give our player a feedTamagotchi method that feeds our tamagotchi. Start by choosing one Tamogatchi to feed and increase their foodInTummy by 1 each time this method is called.
+// Write a medicateTamagotchi method that takes an argument (a Tamagotchi) that will give the specified tamagotchi medicine and increase its health by 1.
 
-// Check that the Tamogatchi is successfully being fed.
-
-// Update your feedTamagotchi method to have your player feed both of the Tamogatchi.
-
-// Run your method and check that both are being fed.
+// Invoke the player.feedTamagotchi(your_tamagotchis_name) method to see if it works
 
 
 let player = {
@@ -75,7 +71,10 @@ let player = {
 	feedTamagotchi () {
 		tamagotchi.foodInTummy = tamagotchi.foodInTummy + 1;
 		tamagotchi2.foodInTummy = tamagotchi2.foodInTummy + 1;
-	} 
+	}, 
+	medicateTamagotchi(chooseTam) {
+		chooseTam.health = chooseTam.health +1;
+	}
 }
 
 player.feedTamagotchi()
