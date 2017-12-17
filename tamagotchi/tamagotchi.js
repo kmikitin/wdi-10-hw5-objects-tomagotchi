@@ -58,21 +58,27 @@ tamagotchi2.cry();
 tamagotchi2.puke();
 tamagotchi2.yawn();
 
-// Let's Play
-// Objects can communicate with each other, and we don't need this for objects to communicate with each other. All it takes is for an object to refer to a previously defined object.
+// Objects can work together! All we need to do is refer to a previously defined object. Let's give our player a feedTamagotchi method that feeds our tamagotchi. Start by choosing one Tamogatchi to feed and increase their foodInTummy by 1 each time this method is called.
 
-// Let's make another object, a player. The player should have a key of name and you can provide the value.
+// Check that the Tamogatchi is successfully being fed.
 
-// Let's give your player an action sayName that will log the sentence: "Hi my name is: " with your player's name at the end.
+// Update your feedTamagotchi method to have your player feed both of the Tamogatchi.
+
+// Run your method and check that both are being fed.
 
 
 let player = {
 	name: 'Jon',
 	sayName() {
 		console.log('Hi my name is: ' + this.name)
+	},
+	feedTamagotchi () {
+		tamagotchi.foodInTummy = tamagotchi.foodInTummy + 1;
+		tamagotchi2.foodInTummy = tamagotchi2.foodInTummy + 1;
 	} 
 }
 
+player.feedTamagotchi()
 
 
 
