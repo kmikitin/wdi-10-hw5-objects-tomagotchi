@@ -44,7 +44,6 @@ function sickTimer(tamagotchi) {
 		}	
 		}, 25000)
 } 
-// what about clearing all intervals once one gets down to 0????
 
 
 
@@ -59,7 +58,7 @@ let tamagotchi = {
 	// create a method to make the tamagotchi cry
 	cry() {
 		// print waaaa!
-		console.log('Waaaaaa!!! ' + this.name + ' is hungry!');
+		console.log(this.name + ': Waaaaaa!!! I\'m hungry!');
 		// subtract one food in tummy whenever called
 		this.foodInTummy = this.foodInTummy - 1;
 		// print how many foods are in their tummy
@@ -100,13 +99,13 @@ let tamagotchi = {
 
 // repeat same as above for a new tamagotchi
 let tamagotchi2 = {
-	name: 'Seth',
+	name: 'Sid',
 	creatureType: 'Unicorn',
 	foodInTummy: 5,
 	restedness: 5,
 	health: 5,
 	cry() {
-		console.log('Waaaaaa!!! ' + this.name + ' is hungry!');
+		console.log(this.name + ': Waaaaaa!!! I\'m hungry!');
 		this.foodInTummy = this.foodInTummy - 1;
 		console.log(this.name + ' has ' + this.foodInTummy + ' foods in their tummy.')
 	},
@@ -146,15 +145,16 @@ let player = {
 		console.log('Hi my name is: ' + this.name)
 	},
 	// create a method for the player to feed both the tamagotchis at once
-	feedTamagotchi () {
+	feedTamagotchi (chooseTam, food) {
 		// when they are fed increase their food in tummy by one
-		tamagotchi.foodInTummy = tamagotchi.foodInTummy + 1;
-		tamagotchi2.foodInTummy = tamagotchi2.foodInTummy + 1;
+		chooseTam.foodInTummy = chooseTam.foodInTummy + 1;
+		console.log(chooseTam.name + ' just ate a ' + food + '!');
 	}, 
 	// create a method for the player to give medicine to the tamagotchis
-	medicateTamagotchi(chooseTam) {
+	medicateTamagotchi(chooseTam, medicine) {
 		// when they sleep increase theri health points by 1
 		chooseTam.health = chooseTam.health +1;
+		console.log('You gave ' + chooseTam.name + ' ' + medicine + '.');
 	},
 	// create a method for the player to put the tamagotchis to sleep
 	knockOutTamagotchi(chooseTam){
@@ -165,7 +165,6 @@ let player = {
 
 // test out player methods
 // player.feedTamagotchi()
-
 
 
 
