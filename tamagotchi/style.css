@@ -1,0 +1,28 @@
+body {
+	background-color: violet;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+h1 {
+	font-family: 'Pangolin';
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#start {
+	background-color: gold;
+	text-align: center;
+}
+
+button {
+	font-size: 16pt;
+	margin: 10px;
+	width: 200px;
+	font-family: 'Pangolin';
+	text-transform: uppercase;
+	background-color: springgreen;
+	border: 1px solid black;
+}
