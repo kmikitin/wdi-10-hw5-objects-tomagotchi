@@ -7,6 +7,8 @@ function hungerTimer(tamagotchi) {
 	// call the method until there are 0 foods left AS LONG AS the other points haven't run out
 		if (tamagotchi.foodInTummy > 1 && tamagotchi.restedness > 1 && tamagotchi.health > 1) {
 			tamagotchi.cry();
+		} else if (tamagotchi.restedness == 0 || tamagotchi.health == 0) {
+			clearInterval(hungerTime);
 		} else {
 			// once there are 0 foods left tamagotchi has starved!
 			console.log(tamagotchi.name + ' starved to death!');
@@ -23,8 +25,10 @@ function yawnTimer(tamagotchi) {
 	// call the method until 0 restedness points remain AS LONG AS the other points haven't run out
 		if (tamagotchi.restedness > 1 && tamagotchi.foodInTummy > 1 && tamagotchi.health > 1) {
 			tamagotchi.yawn();
+		} else if (tamagotchi.foodInTummy == 0 || tamagotchi.health == 0) {
+			clearInterval(yawnTimer);
 		} else {
-			// stop the timer and let the player know their tamatochi died 
+			// stop the timer and let the player know their tamagotchi died 
 			console.log(tamagotchi.name + ' died of exhaustion!');
 			clearInterval(yawnTimer);
 		}
@@ -37,6 +41,8 @@ function sickTimer(tamagotchi) {
 		// call the puke method until 0 health points remain AS LONG AS the other points haven't run out
 		if (tamagotchi.health > 1 && tamagotchi.foodInTummy > 1 && tamagotchi.restedness > 1) {
 			tamagotchi.puke();
+		} else if (tamagotchi.foodInTummy == 0 || tamagotchi.restedness == 0) {
+			clearInterval(sickTimer);
 		} else {
 			// STOP THE TIMER!!! The tamagotchi puked itself to death :/
 			console.log(tamagotchi.name + ' died from their illness!');
@@ -88,6 +94,11 @@ let tamagotchi = {
 		hungerTimer(this);
 		sickTimer(this);
 		yawnTimer(this);
+	},
+	stop() {
+		this.foodInTummy = 0;
+		this.health = 0;
+		this.restedness = 0;
 	}
 }
 
@@ -117,7 +128,7 @@ let tamagotchi2 = {
 	yawn() {
 		console.log(this.name + ': Yaaaaaaawwwwwn');
 		this.restedness = this.restedness - 1;
-		console.log(this.name + ' has ' + this.restedness + ' rest points.'); 
+		console.log(this.name + ' has ' + this.restedness + ' hours of sleep.'); 
 	},
 	hungerTimer() {
 		const theTimer = setInterval(() => {
@@ -129,6 +140,11 @@ let tamagotchi2 = {
 		hungerTimer(this);
 		yawnTimer(this);
 		sickTimer(this);
+	},
+	stop() {
+		this.foodInTummy = 0;
+		this.health = 0;
+		this.restedness = 0;
 	}
 
 }
