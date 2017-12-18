@@ -4,7 +4,7 @@ console.log('We will rule over all this land, and we will call it... "This Land.
 function hungerTimer(tamagotchi) { 
 	// use set interval to creat a timer that calls cry every 6 seconds
 	const hungerTimer = setInterval(() => {
-	// call the method until there are 0 foods left
+	// call the method until there are 0 foods left AS LONG AS the other points haven't run out
 		if (tamagotchi.foodInTummy > 1 && tamagotchi.restedness > 1 && tamagotchi.health > 1) {
 			tamagotchi.cry();
 		} else {
@@ -20,7 +20,7 @@ function hungerTimer(tamagotchi) {
 function yawnTimer(tamagotchi) { 
 	// use setInterval to call yawn every 10 seconds
 	const yawnTimer = setInterval(() => {
-	// call the method until 0 restedness points remain
+	// call the method until 0 restedness points remain AS LONG AS the other points haven't run out
 		if (tamagotchi.restedness > 1 && tamagotchi.foodInTummy > 1 && tamagotchi.health > 1) {
 			tamagotchi.yawn();
 		} else {
@@ -34,7 +34,7 @@ function yawnTimer(tamagotchi) {
 function sickTimer(tamagotchi) {
 		// use setInterval to call puke every 10 seconds
 	const sickTimer = setInterval(() => {
-		// call the puke method until 0 health point remain
+		// call the puke method until 0 health points remain AS LONG AS the other points haven't run out
 		if (tamagotchi.health > 1 && tamagotchi.foodInTummy > 1 && tamagotchi.restedness > 1) {
 			tamagotchi.puke();
 		} else {
@@ -59,7 +59,7 @@ let tamagotchi = {
 	// create a method to make the tamagotchi cry
 	cry() {
 		// print waaaa!
-		console.log('Waaaaaa!!!');
+		console.log('Waaaaaa!!! ' + this.name + ' is hungry!');
 		// subtract one food in tummy whenever called
 		this.foodInTummy = this.foodInTummy - 1;
 		// print how many foods are in their tummy
@@ -102,11 +102,11 @@ let tamagotchi = {
 let tamagotchi2 = {
 	name: 'Seth',
 	creatureType: 'Unicorn',
-	foodInTummy: 3,
-	restedness: 3,
-	health: 3,
+	foodInTummy: 5,
+	restedness: 5,
+	health: 5,
 	cry() {
-		console.log('Waaaaaa!!!');
+		console.log('Waaaaaa!!! ' + this.name + ' is hungry!');
 		this.foodInTummy = this.foodInTummy - 1;
 		console.log(this.name + ' has ' + this.foodInTummy + ' foods in their tummy.')
 	},
@@ -163,7 +163,8 @@ let player = {
 	}
 }
 
-player.feedTamagotchi()
+// test out player methods
+// player.feedTamagotchi()
 
 
 
